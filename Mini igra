@@ -1,0 +1,43 @@
+x = 300
+y = 200
+z = 90
+v = 90
+
+def setup():
+    size(600,400)
+def draw():
+    global x,y,z,v
+    background(255)
+    fill(250,255,0)
+    ellipse(x,y,z,v)
+    if x>=600: 
+        x = x - z 
+    if y>=400:
+        y = y - v
+    if x<0:
+        x = x + z
+    if y<0:
+        y = y + v
+def keyPressed():
+    global x,y,z,v
+    if key == CODED:
+         if keyCode == UP:
+             y = y - 5
+         if keyCode == DOWN:
+             y = y + 5
+         if keyCode == LEFT:
+             x = x - 5
+         if keyCode == RIGHT:
+             x = x + 5
+    if key == "g" or key == "G" or key == "п" or key == "П":
+       z = z + 30
+       v = v + 30
+       if z>=90 and v>=90:
+           z = 90 
+           v = 90        
+    if key == "f" or key == "F" or key == "а" or key == "А":
+       v = v - 30
+       z = z - 30    
+       if z<=0 and v<=0:
+           z = 30 
+           v = 30
